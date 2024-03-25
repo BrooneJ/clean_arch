@@ -4,7 +4,9 @@ import 'package:clean_arch/domain/model/store.dart';
 import 'package:clean_arch/domain/permission/location_permission_handler.dart';
 import 'package:clean_arch/domain/repository/location_repository.dart';
 import 'package:clean_arch/domain/repository/store_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class GetNearByStoresUseCase {
   final StoreRepository _storeRepository;
   final LocationRepository _locationRepository;

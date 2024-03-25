@@ -1,7 +1,9 @@
 import 'package:clean_arch/domain/usecase/get_near_by_stores_use_case.dart';
 import 'package:clean_arch/presentation/main_state.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class MainViewModel with ChangeNotifier {
   final GetNearByStoresUseCase _getNearByStoresUseCase;
 

@@ -4,7 +4,9 @@ import 'package:clean_arch/domain/model/store.dart';
 import 'package:clean_arch/domain/permission/location_permission_handler.dart';
 import 'package:clean_arch/domain/repository/location_repository.dart';
 import 'package:clean_arch/domain/repository/store_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@Singleton(as: StoreRepository)
 class MockStoreRepositoryImpl implements StoreRepository {
   @override
   Future<List<Store>> getStores() async {
@@ -36,6 +38,7 @@ class MockStoreRepositoryImpl implements StoreRepository {
   }
 }
 
+@Singleton(as: LocationRepository)
 class MockLocationRepositoryImpl implements LocationRepository {
   @override
   Future<Location> getLocation() async {
@@ -43,6 +46,7 @@ class MockLocationRepositoryImpl implements LocationRepository {
   }
 }
 
+@Singleton(as: LocationPermissionHandler)
 class MockLocationPermissionHandler implements LocationPermissionHandler {
   @override
   Future<Permission> checkPermission() async {
