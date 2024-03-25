@@ -6,6 +6,7 @@ import 'package:clean_arch/domain/repository/location_repository.dart';
 import 'package:clean_arch/domain/repository/store_repository.dart';
 import 'package:injectable/injectable.dart';
 
+@dev
 @Singleton(as: StoreRepository)
 class MockStoreRepositoryImpl implements StoreRepository {
   @override
