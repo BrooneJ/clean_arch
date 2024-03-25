@@ -1,5 +1,9 @@
+import 'package:clean_arch/data/mock_data.dart';
+import 'package:clean_arch/domain/usecase/get_near_by_stores_use_case.dart';
 import 'package:clean_arch/presentation/main_screen.dart';
+import 'package:clean_arch/presentation/main_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +21,16 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
+      home: ChangeNotifierProvider(
+        create: (context) => MainViewModel(
+          GetNearByStoresUseCase(
+            storeRepository: MockStoreRepositoryImpl(),
+            locationRepository: MockLocationRepositoryImpl(),
+            locationPermissionHandler: MockLocationPermissionHandler(),
+          ),
+        ),
+        child: const MainScreen(),
+      ),
     );
   }
 }
