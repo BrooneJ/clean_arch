@@ -30,12 +30,16 @@ class GetNearByStoresUseCase {
     // Check premission
     if (isServiceEnabled) {
       // Get location
-      final permission = await _locationPermissionHandler.checkPermission();
+      var permission = await _locationPermissionHandler.checkPermission();
 
       // denied
       if (permission == Permission.denied) {
-        print('Permission denied');
-        return stores;
+        permission = await _locationPermissionHandler.requestPermission();
+
+        if (permission == Permission.denied) {
+          print('Permission denied');
+          return stores;
+        }
       }
 
       // deniedForever
