@@ -8,7 +8,9 @@ class Store with _$Store {
   factory Store({
     required String name,
     required String address,
-    required String distance,
+    required num latitude,
+    required num longitude,
+    @Default(0.0) num distance,
     required String remainStatus,
   }) = _Store;
 
